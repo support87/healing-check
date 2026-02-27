@@ -7,6 +7,13 @@ interface Props {
   onContinue: () => void;
 }
 
+function getLabel(v: number) {
+  if (v <= 3) return "Light";
+  if (v <= 6) return "Manageable";
+  if (v <= 8) return "Strong";
+  return "Very intense";
+}
+
 const ScreenIntensity = ({ value, onChange, onContinue }: Props) => {
   const [interacted, setInteracted] = useState(false);
 
@@ -15,8 +22,8 @@ const ScreenIntensity = ({ value, onChange, onContinue }: Props) => {
     if (!interacted) setInteracted(true);
   };
 
-  // Calculate fill percentage
   const pct = ((value - 1) / 9) * 100;
+  const label = getLabel(value);
 
   return (
     <div className="flex flex-col items-center text-center gap-8">
@@ -25,6 +32,12 @@ const ScreenIntensity = ({ value, onChange, onContinue }: Props) => {
       </p>
 
       <div className="w-full px-2">
+        {/* Current value display */}
+        <div className="flex flex-col items-center mb-5 gap-1">
+          <span className="text-4xl font-heading font-bold text-foreground">{value}</span>
+          <span className="text-sm font-body text-muted-foreground tracking-wide uppercase">{label}</span>
+        </div>
+
         <div className="relative w-full">
           <input
             type="range"
@@ -62,23 +75,23 @@ const ScreenIntensity = ({ value, onChange, onContinue }: Props) => {
         .intensity-slider::-webkit-slider-thumb {
           -webkit-appearance: none;
           appearance: none;
-          width: 28px;
-          height: 28px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           background: white;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+          box-shadow: 0 2px 10px rgba(0,0,0,0.18);
           cursor: pointer;
           transition: transform 0.15s ease;
         }
         .intensity-slider::-webkit-slider-thumb:active {
-          transform: scale(1.1);
+          transform: scale(1.12);
         }
         .intensity-slider::-moz-range-thumb {
-          width: 28px;
-          height: 28px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           background: white;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+          box-shadow: 0 2px 10px rgba(0,0,0,0.18);
           cursor: pointer;
           border: none;
         }
