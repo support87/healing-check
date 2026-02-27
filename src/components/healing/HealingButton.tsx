@@ -6,7 +6,7 @@ interface Props {
 
 const HealingButton = ({ children, onClick, variant = "primary" }: Props) => {
   const base =
-    "w-full min-h-[52px] rounded-btn font-heading font-semibold text-base transition-all duration-200 active:scale-[1.02] select-none";
+    "w-full min-h-[52px] rounded-full font-heading font-semibold text-base tracking-wide transition-all duration-200 active:scale-[1.02] select-none";
 
   const variants = {
     primary: "bg-primary text-primary-foreground hover:opacity-90 shadow-md",

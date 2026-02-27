@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -82,11 +82,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Manrope', 'DM Sans', sans-serif;
+    font-family: 'Outfit', 'DM Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', 'DM Sans', sans-serif;
+    font-family: 'Outfit', 'DM Sans', sans-serif;
   }
 }
 
