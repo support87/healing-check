@@ -29,17 +29,17 @@ const HealingCheck = () => {
     setTransitioning(true);
     setTimeout(() => {
       setStep(next);
-      setTransitioning(false);
-    }, 300);
+      setTimeout(() => setTransitioning(false), 50);
+    }, 600);
   }, []);
 
   return (
     <div className="healing-gradient fixed inset-0 flex items-center justify-center overflow-hidden">
       <div
-        className={`w-full max-w-md px-6 transition-all duration-300 ease-in-out ${
+        className={`w-full max-w-md px-6 transition-all duration-[600ms] ease-in-out ${
           transitioning
-            ? "opacity-0 translate-x-[-40px]"
-            : "opacity-100 translate-x-0"
+            ? "opacity-0 translate-x-[-30px] scale-[0.98]"
+            : "opacity-100 translate-x-0 scale-100"
         }`}
       >
         {step === "entry" && <ScreenEntry onSelect={(hasSymptoms) => goTo(hasSymptoms ? "symptom-select" : "no-symptoms")} />}
